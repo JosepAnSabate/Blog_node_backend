@@ -8,18 +8,20 @@ app.set('views', 'views');//2cond argument is the foldrr where the views are
 app.listen(3000);
 
 app.get('/', function (req, res) {
-  res.render('index');
+  const blogs = [
+    {title: 'Blog prova número 1', snipet: 'Text intro blog numero 1'},
+    {title: 'Blog prova número 2', snipet: 'Text intro blog numero 2'},
+    {title: 'Blog prova número 3', snipet: 'Text intro blog numero 3'}
+  ];
+  res.render('index', {blogs: blogs});
 }); 
 
 app.get('/about', function (req, res) {
-    //res.sendFile('./views/about.html', { root: __dirname });
+    //res.sendFile('./views/about.html', { root: __dirname });//sense ejs
   res.render('about');
 }); 
 
-//redirect
-app.get('/about-us', (req, res) => {
-    res.redirect('/about');
-});
+
 
 //404 pages !!sempre a sota de totes !!!!
 app.use((req, res) => {
