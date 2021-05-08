@@ -12,12 +12,13 @@ app.listen(3000);
 app.use(express.static('public'));
 app.use(morgan('dev'));
 
-app.get('/', function (req, res) {
-  const blogs = [
-    {title: 'Blog prova número 1', snipet: 'Text intro blog numero 1'},
-    {title: 'Blog prova número 2', snipet: 'Text intro blog numero 2'},
-    {title: 'Blog prova número 3', snipet: 'Text intro blog numero 3'}
+const blogs = [
+    {handle: 'blog1', title: 'Blog prova número 1', snipet: 'Text intro blog numero 1'},
+    {handle: 'blog2', title: 'Blog prova número 2', snipet: 'Text intro blog numero 2'},
+    {handle: 'blog3', title: 'Blog prova número 3', snipet: 'Text intro blog numero 3'}
   ];
+  
+app.get('/', function (req, res) {
   res.render('index', {blogs: blogs});
 }); 
 
@@ -26,7 +27,10 @@ app.get('/about', function (req, res) {
   res.render('about');
 }); 
 
-
+// blog routes 
+app.get('/:handle', function (req, res) {
+  res.render(`/${req.params.handle}`);
+});  
 
 //404 pages !!sempre a sota de totes !!!!
 app.use((req, res) => {
