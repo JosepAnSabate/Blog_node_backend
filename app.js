@@ -28,10 +28,19 @@ app.get('/about', function (req, res) {
 }); 
 
 // blog routes 
-app.get('/:handle', function (req, res) {
-  res.render(`/${req.params.handle}`);
+app.get('/blog1', function (req, res) {
+  res.render('blog1');
+  console.log(req.params.handle);
+});    
+app.get('/blog2', function (req, res) {
+  res.render('blog2');
 });  
 
+
+/* app.get('/:handle', function (req, res) {
+  res.render(`/${req.params.handle}`);
+});  
+ */
 //404 pages !!sempre a sota de totes !!!!
 app.use((req, res) => {
     res.status(404).render('404'/* , { title: '404'} */);
