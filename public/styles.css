@@ -1,31 +1,28 @@
 body{
-    background: bisque;
+    background: rgb(250, 249, 247);
 }
-     /*  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap'); */
+     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap'); 
    
       
 
      body{
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 0 20px;
         font-family: 'Noto Serif', serif;
-        max-width: 1200px;
       }
-      p, h1, h2, h3, a, ul{
+      
+      p, h2, h3, a, ul{
         margin: 0;
         padding: 0;
         text-decoration: none;
         color: #222;
       }
       /* nav & footer styles */
-      nav{
+       nav{
         display: flex;
         justify-content: space-between;
         margin-bottom: 60px;
         padding-bottom: 10px;
         border-bottom: 1px solid #ddd;
-        text-transform: uppercase;
+        
       }
       nav ul{
         display: flex;
@@ -40,8 +37,16 @@ body{
         font-size: 3em;
       }
       nav p, nav a{
-        color: #777;
-        font-weight: 300;
+        color: rgb(10, 10, 10);
+        font-weight: 800;
+      } 
+      .masthead {
+        height: 100vh;
+        min-height: 200px;
+        background-image: url('iss2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
       footer{
         color: #777;
@@ -88,3 +93,5 @@ body{
         font-size: 1.2em;
         cursor: pointer;
       }
+      
+    
