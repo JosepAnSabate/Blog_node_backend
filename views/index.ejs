@@ -5,20 +5,34 @@
     
     <%- include("./partials/navbar.ejs") %> 
     <%- include("./partials/header.ejs") %>
+    <br>
+    <br>
+    <br>
+    <!-- Main Content -->
     <div id="sec-2" class="blogs content">
-        <h2>All blogs</h2>
-        <% if (blogs.length > 0) { %>
-        <% blogs.forEach(blog => { %>
-
-            <a href="/<%= blog.handle %>"><h3 class="title"><%= blog.title %></h3></a>
-            <p class="snippet"><%= blog.snipet %></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <% if (blogs.length > 0) { %>
+                    <% blogs.forEach(blog => { %>
+                        <div class="post-preview">
+                        <a href="/<%= blog.handle %>"><h2 class="post-title"><%= blog.title %></h2></a>
+                        <h3 class="post-subtitle"><%= blog.snipet %></h3>
+                        <p class="post-meta">Posted by <a href="/about">Josep Andreu Sabaté</a>
+                        on <%= blog.data %></p>
+                        </div>
+                        <hr>
+                        <% }) %>
+                    <% } else { %>
+                        <p>There are no blogs to display...</p>
+                    <% } %>
             
-        <% }) %>
-        <% } else { %>
-            <p>There are no blogs to display...</p>
-        <% } %>
-        
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <br>
     <%- include("./partials/footer.ejs") %>
     <%- include("./partials/scripts.ejs") %>
 </body>

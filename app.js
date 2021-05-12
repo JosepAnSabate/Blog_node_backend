@@ -13,9 +13,9 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 
 const blogs = [
-    {handle: 'blog1', title: 'Blog prova número 1', snipet: 'Text intro blog numero 1'},
-    {handle: 'blog2', title: 'Blog prova número 2', snipet: 'Text intro blog numero 2'},
-    {handle: 'blog3', title: 'Blog prova número 3', snipet: 'Text intro blog numero 3'}
+    {handle: 'blog1', title: 'Blog prova número 1', snipet: 'Text intro blog numero 1', data: 'Wed, 12 May 2021'},
+    {handle: 'blog2', title: 'Blog prova número 2', snipet: 'Text intro blog numero 2', data: 'Wed, 12 May 2021'},
+    {handle: 'blog3', title: 'Blog prova número 3', snipet: 'Text intro blog numero 3', data: 'Wed, 12 May 2021'}
   ];
   
 app.get('/', function (req, res) {

@@ -10,7 +10,7 @@ body{
 }
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap'); 
 
-p, h2, h3, a, ul{
+p, a, ul{
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -48,8 +48,15 @@ h2{
   margin-bottom: 40px;
 }
 h3{
-  text-transform: capitalize;
-  margin-bottom: 8px;
+  font-weight: 350; 
+  margin: 0 0 10px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 .content{
   margin-left: 20px;
@@ -57,7 +64,7 @@ h3{
 /* index styles */
 /* details styles */
 /* create styles */
-.create-blog form{
+/* .create-blog form{
   max-width: 400px;
   margin: 0 auto;
 }
@@ -71,11 +78,11 @@ h3{
 .create-blog label{
   display: block;
   margin-top: 24px;
-}
+} */
 textarea{
   height: 120px;
 }
-.create-blog button{
+/* .create-blog button{
   margin-top: 20px;
   background: crimson;
   color: white;
@@ -83,7 +90,7 @@ textarea{
   border: 0;
   font-size: 1.2em;
   cursor: pointer;
-}
+} */
   
 /* scroll  header*/
 
