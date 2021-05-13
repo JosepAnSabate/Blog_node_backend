@@ -33,7 +33,7 @@ app.get('/blog1', function (req, res) {
 });    
 
 app.get('/blog2', function (req, res) {
-  res.render('blog2');
+  res.render('blog2', {blogs: blogs});
 });  
 
 
