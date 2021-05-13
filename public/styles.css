@@ -17,6 +17,15 @@ p, a, ul{
     color: #222;
 }
 
+/* posts */
+.post-meta-blog {
+  font-size: 16px;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #868e96;
+  
+}
   
 nav li{
   margin-left: 20px;
