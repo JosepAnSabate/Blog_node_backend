@@ -29,9 +29,9 @@ app.get('/about', function (req, res) {
 
 // blog routes 
 app.get('/blog1', function (req, res) {
-  res.render('blog1');
-  console.log(req.params.handle);
+  res.render('blog1', {blogs: blogs});
 });    
+
 app.get('/blog2', function (req, res) {
   res.render('blog2');
 });  
