@@ -14,7 +14,6 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            
                               
           </div>
         </div>
@@ -29,11 +28,10 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <h2 class="post-title">NDVI calculation and maskinkg Sentinel-2 images in Google Earth Engine through JavaScript</h2>
-                
                 <p>This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
                  providing a powerful and fast way to analyze and visualize geospatial data. </p>
                 <br>
-                <p class="post-meta-blog">BY <a href="/about">Josep Andreu Sabaté</a></p>
+                <p class="post-meta-blog">BY <a href="/about" style="font-style: oblique;">Josep Andreu Sabaté</a></p>
                 <hr>
                 <p class="post-meta-blog" style="margin-top: 33px;">PUBLISHED MAY, 2021</p>
             </div>
@@ -41,22 +39,55 @@
     </div>
   </article>
   <!-- bloc content -->
-  <article>
+  
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <p>This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
+                <p class="article-text">This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
                  providing a powerful and fast way to analyze and visualize geospatial data. </p>
                  <p></p>
                  <p></p>
+                 <figure>
+                   <div>
+                     <img src="img/river.jpg" alt="" width="100%">
+                   </div>
+                   <figcaption>
+                     <div>
+                      <div style="line-height: 80%;"> 
+                      <span class="peu-foto-sup">Lichens, like this in Morley Nelson Snake River Birds of Prey National Conservation Area, are actually several species in one.</span>
+                      </div>
+                       <div>
+                        <span class="peu-foto-inf">Image from Sentinel-2</span> 
+                       </div>
+                     </div>
+                   </figcaption>
+                 </figure>
+                 <br>
+                 <div id="mapid" style="width: 800px; height: 540px; "></div>
                  <h2></h2>
                  <p></p>
+                 <p class="article-text">This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
+                  providing a powerful and fast way to analyze and visualize geospatial data. </p>
+                  <br><br>
+                  <pre><code>
+                    //Filtering and displaying data
+                    var Filtered_Region = s2coll.filterBounds(Region);
+                    var Filt_Meta_Reg = Filtered_Region.filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than',3)
+                    var Filt_Date_Meta_Reg = Filt_Meta_Reg.filterDate('2017-01-01', '2021-01-01')
+                    print(Filt_Date_Meta_Reg.size());
+
+                    // equal to
+                    var Filtered_Region2 = s2coll.filterBounds(Region)
+                      .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than',0.5)
+                      .filterDate('2019-01-01', '2020-01-01');
+
+                    //displaying data
+                    var Image_display = Filtered_Region2.first();
+                    Map.addLayer(Image_display, param_vis);
+                  </code></pre>        
             </div>
         </div>
     </div>
-  </article>
-
-
 
     <%- include("./partials/footer.ejs") %>
     <%- include("./partials/scripts.ejs") %>
