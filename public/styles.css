@@ -16,15 +16,68 @@ p, a, ul{
     text-decoration: none;
     color: #222;
 }
+.portada {
+  font-weight: 800;
+  font-family: 'Pangolin', cursive;
+  /* font-family: 'Girassol', cursive; */
+  color: rgb(204, 204, 8);
+  letter-spacing: .6px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width:3px;
+}
 
 /* posts */
+.article-text{
+  color: #333;
+  font-family: Georgia,Times New Roman,Times,serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.632;
+  letter-spacing: .1px;
+  margin-bottom: 24px;
+  margin: 12px 0;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 .post-meta-blog {
   font-size: 16px;
   font-style: italic;
   margin-top: 0;
   margin-bottom: 0;
   color: #868e96;
+}
+
+.peu-foto-sup {
+  font-family: 'PT Serif', serif;
+  font-size: 17px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.1px;
+  line-height: 50%;
+}
+
+
+.peu-foto-inf {
+  color: #555;
+  font-family: GeoBrandRegular,CenturyGothic,AppleGothic,Gill Sans,Gill Sans MT,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1;
+  text-transform: uppercase;
   
+}
+
+#mapid { 
+  height: 180px;
+  border: 6px solid rgb(185, 196, 31);
+  
+  border-radius: 20px 50px;
+  margin: auto;/* centra mapa */
+  margin-top: 35px;
 }
   
 nav li{
@@ -70,24 +123,7 @@ h3{
 .content{
   margin-left: 20px;
 }
-/* index styles */
-/* details styles */
-/* create styles */
-/* .create-blog form{
-  max-width: 400px;
-  margin: 0 auto;
-}
-.create-blog input,
-.create-blog textarea{
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 8px;
-}
-.create-blog label{
-  display: block;
-  margin-top: 24px;
-} */
+
 textarea{
   height: 120px;
 }
@@ -117,7 +153,7 @@ section {
 .scroll-down {
   height: 50px;
   width: 30px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 3px solid rgb(255, 255, 255);
   position: absolute;
   left: 50%;
   bottom: 20px;
