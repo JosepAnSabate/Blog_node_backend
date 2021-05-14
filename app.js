@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 
+
 //register view engine
 app.set('view engine', 'ejs');
 app.set('views', 'views');//2cond argument is the foldrr where the views are
