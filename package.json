@@ -1,12 +1,19 @@
 {
   "name": "blog_nou",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Tutorials and code about remote sensing and GIS for creating maps.",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
+  "keywords": [
+    "remote sensing",
+    "GIS",
+    "earth",
+    "radar",
+    "tutorial"
+  ],
   "author": "Josep",
   "license": "MIT",
   "dependencies": {

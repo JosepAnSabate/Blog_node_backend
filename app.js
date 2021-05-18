@@ -34,9 +34,12 @@ app.get('/blog1', function (req, res) {
 });    
 
 app.get('/blog2', function (req, res) {
-  res.render('blog2', {blogs: blogs});
+  res.render('blog2');
 });  
 
+app.get('/blog3', function (req, res) {
+  res.render('blog3');
+});  
 
 /* app.get('/:handle', function (req, res) {
   res.render(`/${req.params.handle}`);
