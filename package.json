@@ -1,11 +1,11 @@
 {
   "name": "blog_nou",
   "version": "1.0.0",
-  "description": "Tutorials and code about remote sensing and GIS for creating maps.",
+  "description": "Tutorials and code snippets about remote sensing and GIS for creating maps.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
     "remote sensing",
