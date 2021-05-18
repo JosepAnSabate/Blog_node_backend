@@ -26,8 +26,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <h2 class="post-title">NDVI calculation and maskinkg Sentinel-2 images in Google Earth Engine code editor in JS</h2>
-                <p>This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
+                <h2 class="post-title">NDVI calculation and maskinkg Lansat 8 images in Google Earth Engine code editor in JS</h2>
+                <p>This tutorial cover how to apply the NDVI algoritm and masking the results from Landsat 8 images using the Google Earth Engine IDE,
                  providing a powerful and fast way to analyze and visualize geospatial data. </p>
                 <br>
                 <p class="post-meta-blog">BY <a href="/about" style="font-style: oblique;">Josep Andreu Sabaté</a></p>
@@ -86,7 +86,8 @@ var NIR = image.select('B5');
 <br>
                 <h2 class="titols-post">NDVI calculation and displaying</h2> 
                 <hr>  
-                <p class="article-text">This example shows three ways to calculate NDVI and two ways to display results, all of which are valid.</p>
+                <p class="article-text">This example shows three ways to calculate NDVI and two ways to display results, all of which are valid.
+                </p>
 <pre class="hljs"><code>
 //Calculating and diplaying NDVI
 var NDVI = NIR.subtract(RED).divide(NIR.add(RED));
@@ -107,7 +108,7 @@ Map.addLayer(NDVI3, Param, 'ndvi'); //importing palette and range (Param)
 Map.addLayer(NDVI3, {min: -1, max: 1, palette: ['blue', 'white', 'green']},'ndvi2');
   
 </code></pre>    
-<br>
+<p class="article-text"> Remember to change the range manually to -1 and 1 in case you do not indicate it in the code.</p>
 <br>
             <figure>
               <div>
@@ -127,10 +128,11 @@ Map.addLayer(NDVI3, {min: -1, max: 1, palette: ['blue', 'white', 'green']},'ndvi
             <br>
                 <h2 class="titols-post">Masking</h2> 
                 <hr>  
+                <p class="article-text">To achieve the desired masks has been used the relational methods greater than or equal (.gte) and less than (.lt). </p>
 <pre class="hljs"><code>
   //Masking
   // Mask the image pixels in the range of (0.3 to 1) from ndvi
-  //gte = gtreater than
+  //gte = gtreater than or equal
   var VegMasked = image.updateMask(NDVI.gte(0.3));
   Map.addLayer(VegMasked);
   
@@ -140,7 +142,22 @@ Map.addLayer(NDVI3, {min: -1, max: 1, palette: ['blue', 'white', 'green']},'ndvi
   Map.addLayer(NonVegMasked);
   
 </code></pre> 
-
+              <p class="article-text">And once you get the result you can work with the mask of interest ignoring unnecessary pixels.</p>
+              <figure>
+                <div>
+                  <img src="img/blog1gee3.jpg" alt="" width="100%">
+                </div>
+                <figcaption>
+                  <div>
+                  <div style="line-height: 80%;"> 
+                  <span class="peu-foto-sup"></span>
+                  </div>
+                    <div>
+                    <span class="peu-foto-inf">Landsat 8 image excluding the non vegetation pixels above the NDVI.</span> 
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>           
             </div>
         </div>
     </div>
