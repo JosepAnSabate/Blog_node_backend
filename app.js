@@ -7,7 +7,16 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');//2cond argument is the foldrr where the views are
 
-app.listen(3000);
+//deploying project
+//app.listen(3000);
+let port = process.env.Port;
+if (port == null || port == " "){
+  port = 3000;
+}
+
+app.listen(port, ()=>{
+  console.log('App listening...')
+})
 
 //middleware n static files
 app.use(express.static('public'));

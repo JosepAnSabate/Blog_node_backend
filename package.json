@@ -16,6 +16,9 @@
   ],
   "author": "Josep",
   "license": "MIT",
+  "engines":{
+    "node": "14.16.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "ejs": "^3.1.6",
