@@ -4,8 +4,7 @@
 <body>
     
     <%- include("./partials/navbar.ejs") %> 
-    <!-- <%- include("./partials/header.ejs") %> -->
-    
+    <!-- <%- include("./partials/header.ejs") %> -->    
     <!-- Main Content -->
     <!-- Page Header -->
   <header class="masthead" style="background-image: url('img/amazon.jpg'); height: 40vh;">
@@ -43,11 +42,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <p class="article-text">This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
-                 providing a powerful and fast way to analyze and visualize geospatial data. </p>
-                 <p></p>
-                 <p></p>
-                 <figure>
+                <p class="article-text">The <strong>normalized difference vegetation index (NDVI)</strong> is a graphical indicator used in remote sensing assessing whether or not the target being observed contains live green vegetation. The NDVI is calculated based on the information given by the red and near infrared regions, with the following formula: </p>
+                 <p class="article-text" style="text-align: center; font-size: 30px;">NDVI = (near infrared - red) / (near infrared + red)</p>
+                 <p class="article-text"></p>
+                 <!-- <figure>
                    <div>
                      <img src="img/river.jpg" alt="" width="100%">
                    </div>
@@ -61,34 +59,91 @@
                        </div>
                      </div>
                    </figcaption>
-                 </figure>
+                 </figure> -->
+                <!--  <br> -->
+                 <!-- <div id="mapid" style="width: 800px; height: 540px; "></div> -->
+                 <p class="article-text">Taking into account that the NDVI always produces a number between -1 and 1, because of how it is calculated, we could say that an NDVI < 0 represents artificial cover or areas with water, NDVI between 0 and 0.3 represents bare soil, and a high NDVI value represents vegetation.</p>
+                 <p class="article-text"><strong>Masking</strong> is the process in which certain image parts are marked for exclusion from further analysis. The uses of applying a mask extracted from NDVI can be multiple. For example, if you want to do a geological study it may be interesting to work only with areas with little or no vegetation. On the other hand, if you want to study the types of vegetation, it may be interesting to work only with areas with vegetation.</p>
                  <br>
-                 <div id="mapid" style="width: 800px; height: 540px; "></div>
-                 <h2></h2>
-                 <p></p>
-                 <p class="article-text">This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
-                  providing a powerful and fast way to analyze and visualize geospatial data. </p>
-                  <br><br>
+                 <h2 class="titols-post">Filtering data</h2> 
+                 <hr>
+                 <p class="article-text">The first step is import the image collection. In this example we will use a Lansat 8 image Collection 1 Tier 1 TOA Reflectance. More information: <a href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C01_T1_TOA#description">
+                  Earth Engine Data Catalog.</a></p>
+                <p class="article-text"></p>
+                <br>
 <pre class="hljs"><code>
-  //Filtering and displaying data
-  var Filtered_Region = s2coll.filterBounds(Region);
-  var Filt_Meta_Reg = Filtered_Region.filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than',3)
-  var Filt_Date_Meta_Reg = Filt_Meta_Reg.filterDate('2017-01-01', '2021-01-01')
-  print(Filt_Date_Meta_Reg.size());
+var L8 = ee.ImageCollection("LANDSAT/LC08/C01/T1_TOA");
+//Filtering data
+var image = L8.filterBounds(ee.Geometry.Point(-6.59,37.70))
+  .filterMetadata('CLOUD_COVER','less_than', 1)
+  .filterDate('2019-05-01', '2020-01-01')
+  .first();
+  
+var RED = image.select('B4');
+var NIR = image.select('B5');
 
-  // equal to
-  var Filtered_Region2 = s2coll.filterBounds(Region)
-    .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than',0.5)
-    .filterDate('2019-01-01', '2020-01-01');
+</code></pre>  
+<br>
+                <h2 class="titols-post">NDVI calculation and displaying</h2> 
+                <hr>  
+                <p class="article-text">This example shows three ways to calculate NDVI and two ways to display results, all of which are valid.</p>
+<pre class="hljs"><code>
+//Calculating and diplaying NDVI
+var NDVI = NIR.subtract(RED).divide(NIR.add(RED));
+//or
+var NDVI2 = image.expression(
+  '(NIR-RED)/(NIR+RED)',
+  {
+    'NIR': NIR,
+    'RED': RED
+  })
+//or
+var NDVI3 = image.expression('(b(4)-b(3))/(b(4)+b(3))')
 
-  //displaying data
-  var Image_display = Filtered_Region2.first();
-  Map.addLayer(Image_display, param_vis);
-</code></pre>        
+//display
+var Param = {"opacity":1,"bands":["B5"],"min":-1,"palette":["0000ff","ffffff","00b60e"]};
+Map.addLayer(NDVI3, Param, 'ndvi'); //importing palette and range (Param)
+//or
+Map.addLayer(NDVI3, {min: -1, max: 1, palette: ['blue', 'white', 'green']},'ndvi2');
+  
+</code></pre>    
+<br>
+<br>
+            <figure>
+              <div>
+                <img src="img/blog1gee2.jpg" alt="" width="100%">
+              </div>
+              <figcaption>
+                <div>
+                <div style="line-height: 80%;"> 
+                <span class="peu-foto-sup">At the top right of the screen you can see the inspector, which allows you to check the values and location of each pixel by clicking on the map.</span>
+                </div>
+                  <div>
+                  <span class="peu-foto-inf">NDVI from Landsat 8</span> 
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+            <br>
+                <h2 class="titols-post">Masking</h2> 
+                <hr>  
+<pre class="hljs"><code>
+  //Masking
+  // Mask the image pixels in the range of (0.3 to 1) from ndvi
+  //gte = gtreater than
+  var VegMasked = image.updateMask(NDVI.gte(0.3));
+  Map.addLayer(VegMasked);
+  
+  // Mask the image pixels in the range of (-1 to 0.3) from ndvi
+  //lt = less than
+  var NonVegMasked = image.updateMask(NDVI.lt(0.3));
+  Map.addLayer(NonVegMasked);
+  
+</code></pre> 
+
             </div>
         </div>
     </div>
-
     <%- include("./partials/footer.ejs") %>
     <%- include("./partials/scripts.ejs") %>
 </body>

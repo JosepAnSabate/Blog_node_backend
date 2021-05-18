@@ -42,7 +42,17 @@ p, a, ul{
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
-
+.titols-post {
+  margin-bottom: 0px;
+  font-family: GeoEditBold,Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Helvetica,Arial,sans-serif;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 250;
+  color: #000;
+}
+.titols-l {
+  margin: 0.5rem 0;
+}
 .post-meta-blog {
   font-size: 16px;
   font-style: italic;
