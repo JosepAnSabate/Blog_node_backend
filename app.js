@@ -9,13 +9,14 @@ app.set('views', 'views');//2cond argument is the foldrr where the views are
 
 //deploying project
 //app.listen(3000);
-let port = process.env.Port;
+/* let port = process.env.Port;
 if (port == null || port == ""){
   port = 4000;
 } 
 app.listen(port, ()=>{
   console.log('Ap listening...')
-})
+}) */
+http.createServer(onRequest).listen(process.env.PORT || 4000)
 //app.listen(process.env.Port || 3000)
 
 //middleware n static files
