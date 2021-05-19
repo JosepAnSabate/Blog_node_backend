@@ -1,1 +1,1 @@
-worker: npm start
+worker: nodemon app.js
