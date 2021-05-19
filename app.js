@@ -24,9 +24,9 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 
 const blogs = [
-    {handle: 'blog1', title: 'NDVI calculation and maskinkg Lansat 8 images in Google Earth Engine code editor in JS', snipet: 'This tutorial cover how to apply the NDVI algoritm and masking the results from Landsat 8.', data: 'May 2021'},
-    {handle: 'blog2', title: 'Blog prova número 2', snipet: 'Text intro blog numero 2', data: 'May 2021'},
-    {handle: 'blog3', title: 'Blog prova número 3', snipet: 'Text intro blog numero 3', data: 'May 2021'}
+    {handle: 'blog1', title: 'NDVI calculation and masking Lansat 8 images in Google Earth Engine code editor in JS', snipet: 'This tutorial cover how to apply the NDVI algorithm and masking the results from Landsat 8.', data: 'May 2021'},
+    {handle: 'blog2', title: 'Test blog  number 2', snipet: 'Text intro blog number 2', data: 'May 2021'},
+    {handle: 'blog3', title: 'Test blog  number 3', snipet: 'Text intro blog number 3', data: 'May 2021'}
   ];
   
 app.get('/', function (req, res) {

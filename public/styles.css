@@ -25,7 +25,9 @@ p, a, ul{
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width:3px;
 }
-
+.title-about {
+  font-size: 24px;
+}
 /* posts */
 .article-text{
   color: #333;

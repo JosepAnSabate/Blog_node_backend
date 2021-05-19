@@ -26,8 +26,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <h2 class="post-title">NDVI calculation and maskinkg Lansat 8 images in Google Earth Engine code editor in JS</h2>
-                <p>This tutorial cover how to apply the NDVI algoritm and masking the results from Landsat 8 images using the Google Earth Engine IDE,
+                <h2 class="post-title">NDVI calculation and masking Lansat 8 images in Google Earth Engine code editor in JS</h2>
+                <p>This tutorial cover how to apply the NDVI algorithm and masking the results from Landsat 8 images using the Google Earth Engine IDE,
                  providing a powerful and fast way to analyze and visualize geospatial data. </p>
                 <br>
                 <p class="post-meta-blog">BY <a href="/about" style="font-style: oblique;">Josep Andreu Sabaté</a></p>
@@ -45,23 +45,6 @@
                 <p class="article-text">The <strong>normalized difference vegetation index (NDVI)</strong> is a graphical indicator used in remote sensing assessing whether or not the target being observed contains live green vegetation. The NDVI is calculated based on the information given by the red and near infrared regions, with the following formula: </p>
                  <p class="article-text" style="text-align: center; font-size: 30px;">NDVI = (near infrared - red) / (near infrared + red)</p>
                  <p class="article-text"></p>
-                 <!-- <figure>
-                   <div>
-                     <img src="img/river.jpg" alt="" width="100%">
-                   </div>
-                   <figcaption>
-                     <div>
-                      <div style="line-height: 80%;"> 
-                      <span class="peu-foto-sup">Lichens, like this in Morley Nelson Snake River Birds of Prey National Conservation Area, are actually several species in one.</span>
-                      </div>
-                       <div>
-                        <span class="peu-foto-inf">Image from Sentinel-2</span> 
-                       </div>
-                     </div>
-                   </figcaption>
-                 </figure> -->
-                <!--  <br> -->
-                 <!-- <div id="mapid" style="width: 800px; height: 540px; "></div> -->
                  <p class="article-text">Taking into account that the NDVI always produces a number between -1 and 1, because of how it is calculated, we could say that an NDVI < 0 represents artificial cover or areas with water, NDVI between 0 and 0.3 represents bare soil, and a high NDVI value represents vegetation.</p>
                  <p class="article-text"><strong>Masking</strong> is the process in which certain image parts are marked for exclusion from further analysis. The uses of applying a mask extracted from NDVI can be multiple. For example, if you want to do a geological study it may be interesting to work only with areas with little or no vegetation. On the other hand, if you want to study the types of vegetation, it may be interesting to work only with areas with vegetation.</p>
                  <br>
@@ -79,9 +62,6 @@ var image = L8.filterBounds(ee.Geometry.Point(-6.59,37.70))
   .filterDate('2019-05-01', '2020-01-01')
   .first();
   
-var RED = image.select('B4');
-var NIR = image.select('B5');
-
 </code></pre>  
 <br>
                 <h2 class="titols-post">NDVI calculation and displaying</h2> 
@@ -90,6 +70,8 @@ var NIR = image.select('B5');
                 </p>
 <pre class="hljs"><code>
 //Calculating and diplaying NDVI
+var RED = image.select('B4');
+var NIR = image.select('B5');
 var NDVI = NIR.subtract(RED).divide(NIR.add(RED));
 //or
 var NDVI2 = image.expression(
