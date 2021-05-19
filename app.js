@@ -9,11 +9,14 @@ app.set('views', 'views');//2cond argument is the foldrr where the views are
 
 //deploying project
 //app.listen(3000);
-/* let port = process.env.Port;
-if (port == null || port == " "){
+let port = process.env.Port;
+if (port == null || port == ""){
   port = 3000;
-} */
-app.listen(process.env.Port || 3000)
+} 
+app.listen(port, ()=>{
+  console.log('Ap listening...')
+})
+//app.listen(process.env.Port || 3000)
 
 //middleware n static files
 app.use(express.static('public'));
