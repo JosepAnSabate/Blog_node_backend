@@ -9,7 +9,7 @@ app.set('views', 'views');//2cond argument is the foldrr where the views are
 
 //deploying project
 //app.listen(3000);
-let port = process.env.Port;
+let port = process.env.PORT;
 if (port == null || port == ""){
   port = 4000;
 } 
