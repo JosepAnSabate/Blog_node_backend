@@ -16,6 +16,23 @@ p, a, ul{
     text-decoration: none;
     color: #222;
 }
+.ol-mod{
+    font-family: Georgia,Times New Roman,Times,serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.632;
+    letter-spacing: .1px;
+}
+.enllas{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: rgb(43, 67, 173);
+    text-decoration: underline;
+}
+.margin-li{
+  margin-left: 20pt;
+}
 .portada {
   font-weight: 800;
   font-family: 'Pangolin', cursive;
@@ -51,6 +68,16 @@ p, a, ul{
   line-height: 1.1;
   font-weight: 250;
   color: #000;
+}
+.titles-blog2{
+  font-weight: 700;
+  font-family: Georgia,Times New Roman,Times,serif;
+  color: #333;
+  font-size: 19px;
+  line-height: 1.632;
+  box-sizing: inherit;
+  letter-spacing: .1px;
+
 }
 .titols-l {
   margin: 0.5rem 0;

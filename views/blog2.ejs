@@ -23,75 +23,82 @@
   <br>
   <!-- Post Content -->
   <!-- header del contingut del bloc -->
-  <article>
+  <article class="article-text">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <h2 class="post-title">Test 2</h2>
-                <p>This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
-                 providing a powerful and fast way to analyze and visualize geospatial data. </p>
+                <h2 class="post-title">Plotly graphs about SARS-CoV-2 vaccination campaign in Catalunya using Python.</h2>
+                <p> In this examples we will see a series of graphs using the <a class="enllas" href="https://plotly.com/python/">plotly package.</a>
+                  The plotly Python package exists to create, manipulate and render graphical figures
+                   (i.e. charts, plots, maps and diagrams) represented by data structures also referred
+                    to as figures. The rendering process uses the Plotly.js JavaScript library under the hood 
+                    although Python developers using this module very rarely need to interact with the Javascript 
+                    library directly, if ever.</p>
                 <br>
                 <p class="post-meta-blog">BY <a href="/about" style="font-style: oblique;">Josep Andreu Sabaté</a></p>
                 <hr>
-                <p class="post-meta-blog" style="margin-top: 33px;">PUBLISHED MAY, 2021</p>
+                <p class="post-meta-blog" style="margin-top: 33px;">PUBLISHED SEPTEMBER, 2021</p>
             </div>
         </div>
     </div>
   </article>
-  <!-- bloc content -->
-  
+
+  <!-- bloc content -->  
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <p class="article-text">This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
-                 providing a powerful and fast way to analyze and visualize geospatial data. </p>
-                 <p></p>
-                 <p></p>
-                 <figure>
-                   <div>
-                     <img src="img/river.jpg" alt="" width="100%">
-                   </div>
-                   <figcaption>
-                     <div>
-                      <div style="line-height: 80%;"> 
-                      <span class="peu-foto-sup">Lichens, like this in Morley Nelson Snake River Birds of Prey National Conservation Area, are actually several species in one.</span>
-                      </div>
-                       <div>
-                        <span class="peu-foto-inf">Image from Sentinel-2</span> 
-                       </div>
-                     </div>
-                   </figcaption>
-                 </figure>
-                 <br>
-                 <div id="mapid" style="width: 800px; height: 540px; "></div>
-                 <h2></h2>
-                 <p></p>
-                 <p class="article-text">This tutorial cover how to apply the NDVI algoritm and masking the results from Sentinel-2 images using the Google Earth Engine IDE,
-                  providing a powerful and fast way to analyze and visualize geospatial data. </p>
+                <p class="article-text">Given the <a class="enllas" href="https://analisi.transparenciacatalunya.cat/Salut/Vacunaci-per-al-COVID-19-dosis-administrades-per-r/tp23-dey4">
+                   data of the Conselleria of Health</a> on September 2, on vaccinations calculates: </p>
+                   <ol class="ol-mod">
+                    <li>How many people have been vaccinated with the first vaccine? And with the second? And how many people 
+                      have made an appointment and not attended?</li>
+                    <li>Create a graph showing the population vaccinated by ages with first and second dose.</li>
+                    <li>Create the graph above showing the percentages of groups using the data of January 1, 2021
+                       on <a class="enllas" href="https://plotly.com/python/">population by age of IDESCAT.</a></li>
+                      <li>Create a graph with the number of vaccines administered according
+                         to each manufacturer.</li>
+                      <li>Create a graph with the sum of fully vaccinated people accumulated and the number of vaccines given
+                         daily depending on whether they are first or second dose.</li>
+                  </ol>  
+                 <p class="article-text"> The examples on this web are also in matplotlib but the matplotlib 
+                   graph is a simple image. Otherwise with plotly you can export the python graph to <a class="enllas" href="https://chart-studio.plotly.com/">
+                    Chart Studio cloud</a> creating a free account. <a class="enllas" href="https://chart-studio.plotly.com/">Chart Studio</a> is a fastest way to plublish embeded and interactive
+                    charts online.</p> 
+                    <br>
+                  <h5>Source Code:</h5>
+                  <ul style="list-style-type:circle">
+                    <li class="margin-li"><a class="enllas" href="https://github.com/JosepAnSabate/blog_post_vac/blob/main/blog_plotly_web.ipynb">
+                      Interactive graphs using Plotly.</a></li>
+                    <li class="margin-li"><a class="enllas" href="https://github.com/JosepAnSabate/blog_post_vac/blob/main/Data_vaccinacio_matplotlib.ipynb">
+                      Static graphs Matplotlip.</a></li>
+                  </ul>
                   <br><br>
-<pre class="hljs"><code>
-  //Filtering and displaying data
-  var Filtered_Region = s2coll.filterBounds(Region);
-  var Filt_Meta_Reg = Filtered_Region.filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than',3)
-  var Filt_Date_Meta_Reg = Filt_Meta_Reg.filterDate('2017-01-01', '2021-01-01')
-  print(Filt_Date_Meta_Reg.size());
-
-  // equal to
-  var Filtered_Region2 = s2coll.filterBounds(Region)
-    .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than',0.5)
-    .filterDate('2019-01-01', '2020-01-01');
-
-  //displaying data
-  var Image_display = Filtered_Region2.first();
-  Map.addLayer(Image_display, param_vis);
-</code></pre>        
+                  <h5 class="titles-blog2">1. How many people have been vaccinated with the first vaccine? And with the second? And how many people 
+                    have made an appointment and not attended?</h5>
+                   
+                  <p class="article-text">On September 2ns 2021 in Catalunya <b>5.694.103</b> first doses and <b>4.712.491</b> second doses have been administrated. 
+                    There are <b>109.955</b> appointments not attended.</p>
+                    <br>
+                                  
+                  <h5 class="titles-blog2">2.Create a graph showing the population vaccinated by ages with first and second dose.</h5>
+                  <br>
+                  <iframe width="800" height="700" frameborder="0" scrolling="no" src="//plotly.com/~josepandreu/5.embed"></iframe>
+                   
+                  <h5 class="titles-blog2">3. Create the graph above showing the percentages of groups using the data of January 1, 2021
+                    on <a class="enllas" href="https://plotly.com/python/">population by age of IDESCAT.</a></h5>
+                    <p class="article-text"></p>
+                    <br>
+                    <iframe width="800" height="700" frameborder="0" scrolling="no" src="//plotly.com/~josepandreu/7.embed"></iframe>
+                    <h5 class="titles-blog2">4. Create a graph with the number of vaccines administered according
+                      to each manufacturer.</h5> 
+                      <iframe width="800" height="700" frameborder="0" scrolling="no" src="//plotly.com/~josepandreu/9.embed"></iframe>
+                    <h5 class="titles-blog2">5. Create a graph with the sum of fully vaccinated people accumulated and the number of vaccines given
+                      daily depending on whether they are first or second dose.</h5>
+                      <br>
+                      <iframe width="800" height="700" frameborder="0" scrolling="no" src="//plotly.com/~josepandreu/2.embed"></iframe>
             </div>
         </div>
     </div>
-<!-- Make sure you put this AFTER Leaflet's CSS -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-crossorigin="">
 </script>
     <%- include("./partials/footer.ejs") %>
     <%- include("./partials/scripts.ejs") %>
