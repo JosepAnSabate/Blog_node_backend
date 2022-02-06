@@ -24,13 +24,32 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 
 const blogs = [
-    {handle: 'blog1', title: 'NDVI calculation and masking Lansat 8 images in Google Earth Engine code editor in JS', snipet: 'This tutorial cover how to apply the NDVI algorithm and masking the results from Landsat 8.', data: 'May 2021'},
-    {handle: 'blog2', title: 'Plotly graphs about SARS-CoV-2 vaccination campaign in Catalunya using Python.', snipet: 'Check out the different interactive graphs about the Catalan vaccination campaign.', data: 'September 2021'},
-    {handle: 'blog3', title: 'Test blog  number 3', snipet: 'Text intro blog number 3', data: 'May 2021'}
+    {handle: 'blog1', title: 'NDVI calculation and masking Lansat 8 images in Google Earth Engine code editor in JS',
+       snipet: 'This tutorial cover how to apply the NDVI algorithm and masking the results from Landsat 8.', data: 'May 2021',
+      category1:'JavaScript', category2:"GoogleEarthEngine"
+      },
+    {handle: 'blog2', title: 'Plotly graphs about SARS-CoV-2 vaccination campaign in Catalunya using Python.', 
+      snipet: 'Check out the different interactive graphs about the Catalan vaccination campaign.', data: 'September 2021',
+      category1:'Python', category2:"Plotly"
+    },
+    {handle: 'blog3', title: 'Mapping of iron-bearing minerals with Sentinel-2 using IAF index in Google Earth Engine code editor in JS.',
+       snipet: 'Example of Web Map published using the free deployment of Earth Engine Apps.', data: 'February 2022', code:"https://code.earthengine.google.com/f3ab88798570f25d838642e497f13e72",
+       category1:'JavaScript', category2:"GoogleEarthEngine"
+      },
+    {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
+       snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
+       category1:'JavaScript', category2:"React"
+      }
   ];
   
 app.get('/', function (req, res) {
   res.render('index', {blogs: blogs});
+}); 
+
+app.get('/category/:id', function (req, res) {
+  const id = req.params.id;
+  console.log(id);
+  res.render('categories', {blogs: blogs, catId:id});
 }); 
 
 app.get('/about', function (req, res) {
@@ -48,7 +67,17 @@ app.get('/blog2', function (req, res) {
 });  
 
 app.get('/blog3', function (req, res) {
-  res.render('blog3');
+  res.writeHead(301, {  //status, path
+    Location: 'https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2'
+  }).end();
+  //.send('https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2')
+});  
+
+app.get('/blog4', function (req, res) {
+  res.writeHead(301, {  //status, path
+    Location: 'https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2'
+  }).end();
+  //.send('https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2')
 });  
 
 /* app.get('/:handle', function (req, res) {

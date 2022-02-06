@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+    
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" style="background-image: url('../img/earth.jpg') ;">
+        <div class="container" >
+          <a class="navbar-brand" style="font-size: 30px;" href="/">GeoMaps Blog</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
+          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> 
+    <header class="masthead" style="background-image: url('../img/amazon.jpg'); height: 40vh;">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="post-heading">
+                                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    <br>
+    <br>
+    <!-- Main Content -->
+    <div id="sec-2" class="blogs content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">   
+                    <% if (blogs.length > 0) { %>
+                    <% blogs.forEach(blog => { %>
+                        <% if (blog.category1 == catId || blog.category2 == catId) { %>
+                        <div class="post-preview">
+                        <h2 class="post-title"><a href="/<%= blog.handle %>"><%= blog.title %></h2></a>
+                        <h3 class="post-subtitle"><a href="/<%= blog.handle %>"><%= blog.snipet %></h3></a>
+                        <div class="categories-container">
+                            <a href="/category/<%= blog.category1 %>"><button class="categories-button"><%= blog.category1 %></button></a>
+                            <a href="/category/<%= blog.category2 %>"><button style="margin-left: 18px; background-color: #e1d642;" class="categories-button">
+                                 <%= blog.category2 %></button></a>
+                        </div>
+                        <% if (blog.code) { %>
+                            <p style="text-align: end; margin-right: 60px;"><a href="<%= blog.code %>" target="_blank">Source Code</a></p>
+                        <% } %>
+                        <p class="post-meta">Posted by <a href="/about">Josep Andreu Sabaté</a> on <%= blog.data %></p>
+                        </div>
+                        <hr>
+                        <% } %>
+                        <% }) %>
+                    <% } else { %>
+                        <p>There are no blogs to display...</p>
+                    <% } %>       
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <%- include("./partials/footer.ejs") %>
+    <%- include("./partials/scripts.ejs") %>
+</body>
+</html>
