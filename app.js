@@ -30,15 +30,15 @@ const blogs = [
       },
     {handle: 'blog2', title: 'Plotly graphs about SARS-CoV-2 vaccination campaign in Catalunya using Python.', 
       snipet: 'Check out the different interactive graphs about the Catalan vaccination campaign.', data: 'September 2021',
-      category1:'Python', category2:"Plotly"
+      category1:'Python', category2:"Plotly", 
     },
     {handle: 'blog3', title: 'Mapping of iron-bearing minerals with Sentinel-2 using IAF index in Google Earth Engine code editor in JS.',
        snipet: 'Example of Web Map published using the free deployment of Earth Engine Apps.', data: 'February 2022', code:"https://code.earthengine.google.com/f3ab88798570f25d838642e497f13e72",
-       category1:'JavaScript', category2:"GoogleEarthEngine"
+       category1:'JavaScript', category2:"GoogleEarthEngine", externalSource:"https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2"
       },
     {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
        snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
-       category1:'JavaScript', category2:"React"
+       category1:'JavaScript', category2:"React", externalSource:"https://josepansabate.github.io/React-Leaflet-World-Oil-Production-Deployment/"
       }
   ];
   
@@ -66,24 +66,13 @@ app.get('/blog2', function (req, res) {
   res.render('blog2');
 });  
 
-app.get('/blog3', function (req, res) {
-  res.writeHead(301, {  //status, path
-    Location: 'https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2'
-  }).end();
-  //.send('https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2')
-});  
 
-app.get('/blog4', function (req, res) {
-  res.writeHead(301, {  //status, path
-    Location: 'https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2'
-  }).end();
-  //.send('https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2')
-});  
 
 /* app.get('/:handle', function (req, res) {
   res.render(`/${req.params.handle}`);
 });  
  */
+
 //404 pages !!sempre a sota de totes !!!!
 app.use((req, res) => {
     res.status(404).render('404'/* , { title: '404'} */);
