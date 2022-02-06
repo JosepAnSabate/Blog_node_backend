@@ -37,11 +37,13 @@
       </header>
     <br>
     <br>
+    
     <!-- Main Content -->
     <div id="sec-2" class="blogs content">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">   
+                    <h2 class="post-title">Category:&nbsp; <%= catId %></h2> <!-- &nbsp; space in html -->   
                     <% if (blogs.length > 0) { %>
                     <% blogs.forEach(blog => { %>
                         <% if (blog.category1 == catId || blog.category2 == catId) { %>
