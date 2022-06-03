@@ -39,7 +39,11 @@ const blogs = [
     {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
        snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
        category1:'JavaScript', category2:"React", externalSource:"https://josepansabate.github.io/React-Leaflet-World-Oil-Production-Deployment/"
-      }
+      },
+    {handle: 'blog5', title: 'World gas production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
+      snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'June 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-Gas-World-Pruduction",
+      category1:'JavaScript', category2:"React", externalSource:"https://josepansabate.github.io/React-Leaflet-Gas-World-Pruduction/"
+     }
   ];
   
 app.get('/', function (req, res) {
