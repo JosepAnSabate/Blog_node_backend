@@ -36,13 +36,21 @@ const blogs = [
        snipet: 'Example of Web Map published using the free deployment of Earth Engine Apps.', data: 'February 2022', code:"https://code.earthengine.google.com/f3ab88798570f25d838642e497f13e72",
        category1:'JavaScript', category2:"GoogleEarthEngine", externalSource:"https://josepandreu995.users.earthengine.app/view/iaf-sentinel-2"
       },
-    {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
-       snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
-       category1:'JavaScript', category2:"React", externalSource:"https://josepansabate.github.io/React-Leaflet-World-Oil-Production-Deployment/"
+      {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
+        snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
+        category1:'JavaScript', category2:"React", 
       },
+    // {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
+    //    snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
+    //    category1:'JavaScript', category2:"React", externalSource:"https://josepansabate.github.io/React-Leaflet-World-Oil-Production-Deployment/"
+    //   },
     {handle: 'blog5', title: 'World gas production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
       snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'June 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-Gas-World-Pruduction",
       category1:'JavaScript', category2:"React", externalSource:"https://josepansabate.github.io/React-Leaflet-Gas-World-Pruduction/"
+     },
+     {handle: 'blog6', title: 'GEOATLES PROJECT. Geological app for storing locations, descriptions and photos and display this locations over ICGC maps from Catalunya.',
+      snipet: 'Deployed on AWS. This project use Node, Express, Mongodb, leaflet.', data: 'December 2021', code:"https://github.com/JosepAnSabate/Geoapp_node_mongo_leaflet_auth",
+      category1:'AWS', category2:"NodeJS",category3:"Leaflet", externalSource:"https://geoatles.cat/"
      }
   ];
   
@@ -70,6 +78,9 @@ app.get('/blog2', function (req, res) {
   res.render('blog2');
 });  
 
+app.get('/blog4', function (req, res) {
+  res.render('blog4');
+}); 
 
 
 /* app.get('/:handle', function (req, res) {

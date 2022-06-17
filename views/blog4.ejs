@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    
+    <%- include("./partials/navbar.ejs") %> 
+    <!-- <%- include("./partials/header.ejs") %> -->    
+    <!-- Main Content -->
+    <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/amazon.jpg'); height: 40vh;">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+                              
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <br>
+  <!-- Post Content -->
+  <!-- header del contingut del bloc -->
+  <article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <br>  
+              <h2 class="post-title">World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.</h2>  
+                <div style="font-weight: 400;">
+                  <p class="post-meta-blog">BY <a href="/about" style="font-style: oblique;">Josep Andreu Sabaté</a></p>
+                  <hr>
+                  <p class="post-meta-blog" style="margin-top: 33px;">PUBLISHED February, 2022</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </article>
+  <!-- bloc content -->
+  <br><br>
+      <div>
+        <embed src="https://josepansabate.github.io/React-Leaflet-World-Oil-Production-Deployment/" 
+          style="width:95vw; height: 70vh;  display: table;
+          margin: 0 auto;">
+      </div>
+      <br>
+      <br>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p class="article-text">
+                  <strong></strong>
+                   This map is using leaflet for geographical data visualisations. 
+                   There are other options for it using <strong>react</strong> like <strong>mapbox, D3 or plotlyJS.</strong> 
+                   The project is deployed in github pages free deployment and can be used in any other 
+                   website using this tag: 
+                </p>
+
+                <pre class="hljs"><code>
+                  <p id="string-code" style="color: white;"></p>
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <script>
+    let string_code = 
+    `   <embed src="https://josepansabate.github.io/React-Leaflet-World-Oil-Production-Deployment/" 
+    style="width: 80vw; height: 65vh;>`
+    document.getElementById("string-code").innerText = string_code;
+    </script>
+    <%- include("./partials/footer.ejs") %>
+    <%- include("./partials/scripts.ejs") %>
+</body>
+</html>
+

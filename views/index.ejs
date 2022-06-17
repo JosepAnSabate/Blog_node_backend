@@ -27,6 +27,10 @@
                            <a href="/category/<%= blog.category1 %>"><button class="categories-button"><%= blog.category1 %></button></a>
                            <a href="/category/<%= blog.category2 %>"><button style="margin-left: 18px; background-color: #e1d642;" class="categories-button">
                                 <%= blog.category2 %></button></a>
+                            <% if (blog.category3) { %>
+                                <a href="/category/<%= blog.category3 %>"><button style="margin-left: 18px; background-color: #ff4242;" class="categories-button">
+                                    <%= blog.category3 %></button></a>
+                            <% } %>
                         </div>
                         <% if (blog.code) { %>
                             <p style="text-align: end; margin-right: 60px;"><a href="<%= blog.code %>" target="_blank">Source Code</a></p>
