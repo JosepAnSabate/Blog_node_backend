@@ -38,7 +38,7 @@ const blogs = [
       },
       {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
         snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
-        category1:'JavaScript', category2:"React", 
+        category1:'JavaScript', category2:"React", category3:"Leaflet"
       },
     // {handle: 'blog4', title: 'World oil production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
     //    snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'February 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-World-Oil-Production-Deployment",
@@ -46,7 +46,7 @@ const blogs = [
     //   },
     {handle: 'blog5', title: 'World gas production by country Web map using React Leaflet, React Hooks, GeoJson and Papa Parse.',
       snipet: 'Example of Web Map published using the free deployment of GitHub.', data: 'June 2022', code:"https://github.com/JosepAnSabate/React-Leaflet-Gas-World-Pruduction",
-      category1:'JavaScript', category2:"React", externalSource:"https://josepansabate.github.io/React-Leaflet-Gas-World-Pruduction/"
+      category1:'JavaScript', category2:"React",category3:"Leaflet", externalSource:"https://josepansabate.github.io/React-Leaflet-Gas-World-Pruduction/"
      },
      {handle: 'blog6', title: 'GEOATLES PROJECT. Geological app for storing locations, descriptions and photos and display this locations over ICGC maps from Catalunya.',
       snipet: 'Deployed on AWS. This project use Node, Express, Mongodb, leaflet.', data: 'December 2021', code:"https://github.com/JosepAnSabate/Geoapp_node_mongo_leaflet_auth",
