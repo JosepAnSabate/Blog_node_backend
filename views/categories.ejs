@@ -46,7 +46,7 @@
                     <h2 class="post-title">Category:&nbsp; <%= catId %></h2> <!-- &nbsp; space in html -->   
                     <% if (blogs.length > 0) { %>
                     <% blogs.forEach(blog => { %>
-                        <% if (blog.category1 == catId || blog.category2 == catId) { %>
+                        <% if (blog.category1 == catId || blog.category2 == catId || blog.category3 == catId) { %>
                           <div class="post-preview">
                             <% if (blog.externalSource) { %>   
                               <h2 class="post-title"><a href="<%= blog.externalSource %>"><%= blog.title %></a></h2>
